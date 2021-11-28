@@ -2,6 +2,19 @@
     margin: 0;
     padding: 0;
 }
+
+.navbar {
+  height: 70px;
+  background-color: blue;
+  display: flex;
+  color: white;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.navbar  li {
+  list-style: none;
+}
 form {
     /* Centrar el formulario en la página */
     margin: 0 auto;
@@ -67,3 +80,17 @@ form {
        entre las etiquetas y sus campos de texto */
     margin-left: .5em;
   }
+
+/*Comienzo Footer*/
+
+footer{
+  background-color: blue;
+  height: 55px;
+  width: 100%;
+  color: white;
+  text-align: center;
+  bottom: 0;
+  position: absolute;
+}
+
+/*Fin Footer*/

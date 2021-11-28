@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+body {
+    font-family: 'Rubik', sans-serif;
+}
+
 footer{
     background-color: blue;
     height: 55px;

@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+body {
+    font-family: 'Rubik', sans-serif;
+}
+
 /*Comienzo Estilos Navbar*/
 .navbar {
     height: 70px;

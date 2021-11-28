@@ -49,6 +49,8 @@ section {
     height: 30px;
     justify-content: space-around;
     margin-left: 30px;
+    background-color: #D8BFD8;   
+    border-radius: 5px;
     
 }
 

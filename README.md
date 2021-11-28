@@ -15,4 +15,4 @@ Publicacion en Github Pages:
 https://alejandrovozella.github.io/JuegodeDamas/
 
 ### Licencia y Copyright
-© Ruben Sato - Año 2021
+© Nicolas Vozella - Año 2021

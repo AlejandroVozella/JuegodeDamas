@@ -10,7 +10,9 @@ Trabajo inicial de la materia Lenguajes de Programacion Para la Administracion, 
 
 Git y Github
 
-Publicacion en Github Pages
+Publicacion en Github Pages:
+
+https://alejandrovozella.github.io/JuegodeDamas/
 
 ### Licencia y Copyright
 © Ruben Sato - Año 2021

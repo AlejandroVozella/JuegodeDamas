@@ -6,15 +6,17 @@
 /*Comienzo Estilos Navbar*/
 .navbar {
     height: 70px;
-    background-color: blue;
+    background-color:yellowgreen;
     display: flex;
     color: white;
     justify-content: space-around;
     margin-bottom: 20px;
+    
 }
 
 .navbar  li {
     list-style: none;
+    margin-top: 20px;
 }
 
 /*Fin Estilos Navbar*/

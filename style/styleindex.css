@@ -77,7 +77,7 @@ footer{
     
 }
 .fila {
-    background-color: #999;
+    background-color: white;
     display: table;
 }
 .recuadro {
@@ -87,7 +87,15 @@ footer{
 }
 .fila:nth-child(odd) .recuadro:nth-child(even),
 .fila:nth-child(even) .recuadro:nth-child(odd) {
-    background-color: white;
+    background-color: #999;
+}
+
+.fichablanca {
+    background-image: url(../img/FichaGris.png);
+}
+
+.fichanegra {
+    background-color:url(../img/FichaRojo.png) ;
 }
 
 /*Fin Estilos Tablero*/

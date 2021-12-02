@@ -21,28 +21,32 @@
         </header>
         <body>
           
-          <form action="/my-handling-form-page" method="post">
-            <ul>
-                <li>
-                  <label for="name">Nombre:</label>
-                  <input type="text" id="name" name="user_name">
-                </li>
-                <li>
-                  <label for="mail">Correo electrónico:</label>
-                  <input type="email" id="mail" name="user_mail">
-                </li>
-                <li>
-                  <label for="msg">Mensaje:</label>
-                  <textarea id="msg" name="user_message"></textarea>
-                </li>
-                <li class="button">
-                  <button type="submit">Envíe su mensaje</button>
-                </li>
-            </ul>
-           </form>
+                <section id="form-contacto">
+                  <div class="form-row">
+                      <div class="form-titulo">
+                          <h2>
+                              Complete el siguiente formulario para enviarnos su consulta:
+                          </h2>
+                      </div>
+                      <div class="form-fila">
+                          <input type="text" id="nombre" placeholder="Nombre y apellido" required>
+                      </div>
+                      <div class="form-fila">
+                          <input type="email" id="mail" placeholder="Correo electronico" required>
+                      </div>
+                      <div class="form-fila">
+                          <textarea id="consulta" placeholder="Escriba aqui su consulta" required></textarea>
+                      </div>
+                      <div class="form-boton">
+                          <input type="button" id="boton-consulta" value="Click para enviar consulta" onclick="javascript:enviarDatosContacto();">
+                      </div>            
+                  </div>
+              </section>
            <footer>
             <h5>© Nicolas Vozella - Año 2021</h5>
           </footer>
+          <script type="text/javascript" src="app/contacto.js">
+          </script>
         </body>
             
                   

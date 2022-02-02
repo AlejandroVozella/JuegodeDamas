@@ -24,6 +24,7 @@ for (let i=0; i<tamano; i++) {
         //fila.classList.add("fichablanca");
     }
     tablero.appendChild(fila);
+    
 }
 
 //Recorrer el Tablero y Cargar Fichas

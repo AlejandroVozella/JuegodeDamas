@@ -1,45 +1,53 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="style/styleindex.css" />
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<html>
-  <head>
-   
-  </head>
+  <link rel="styleshett" type="text/css" href="style/reset.css">
+  <link rel="styleshett" type="text/css" href="style/style.css">
+
+
+  <title>MiniDamas-Personalizado con Js -LLPA 2021</title>
+
+  <!-- Carga Inicial Funciones  -->
+  <script type="text/javascript" src="app/damas.js">
+  </script>
+
+</head>
+<body>
+ 
   <header>
-    <ul class="navbar">
-        <li><a href="#">Mini Damas</a></li>
-        <li><a href="#">Que es ?</a></li>
-        <li><a href="reglas.html">Reglas</a></li>
-        <li><a href="contact.html">Contacto</a></li>
-      </ul>
+    <input type="checkbox" id="btnmenu">
+    <label for="btnmenu">
+      <img src="./img/icono-menu.png" alt="Menu Boton">
+    </label>
+      <nav>
+        <ul>
+          <li><a href="#">DAMAS</a></li>
+          <li><a href="reglas.html">REGLAS DEL JUEGO</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
   </header>
 
-  <body>
-    <section>
-      <div>
-        <h3><p id="jugador1">Jugador 2</p></h3>
-        <h2>Puntos:</h2>
+  <section id="tablero">
+    <div class="row">
+      <div id="juego-damas">
+        <h2>Mini Damas</h2>
+        <div class="puntajes">
+          <h3>Fichas #1:<p id="nombreJugador1">Jugador 1</p></h3>
+          <input type="text" id="puntos1" class="jugador-puntaje" value="0" ReadOnly>
+        </div>
+        <div class="puntajes">
+          <h3>Fichas #2:<p id="nombreJugador2">Jugador 2</p></h3>
+          <input type="text" id="puntos2" class="jugador-puntaje" value="0" ReadOnly>
+        </div>
       </div>
-
-      <div id="tablero"></div>
-      
-      <div>
-        <h3><p id="jugador2">Jugador 2</p></h3>
-        <h2>Puntos:</h2>
-      </div>
-      
-      <script type="text/javascript" src="app/tablero.js"></script>
-      
-    </script>
-    </section>
-    <div class="containerbutton">
-            <button>Nueva Partida</button>
-            <button>Guardar Partida</button>
-            <button>Recuperar Partida</button>
-     </div>
-    <footer>
-      <h5>© Nicolas Vozella - Año 2021</h5>
-    </footer>
-    <!-- <script type="text/javascript" src="app/scripts.js"></script> -->
-  </body>
+    </div>
+  </section>
+  
+  
+</body>
 </html>

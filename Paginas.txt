@@ -1,3 +1,0 @@
-http://w3.unpocodetodo.info/css3/selector-nth-child.php
-
-https://www.lawebdelprogramador.com/codigo/JavaScript/6772-Crear-un-tablero-de-ajedrez-con-JavaScript-y-CSS.html

@@ -1,53 +1,96 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
 
-  <link rel="styleshett" type="text/css" href="style/reset.css">
-  <link rel="styleshett" type="text/css" href="style/style.css">
+    <meta charset="utf-8">
+    <meta name="description" content="Pagina de practica de JS de LPPA 2021 UAI Rosario">
+	  <meta name="keywords" content="web design, affordable web design, professional web design">
+  	<meta name="author" content="Ruben Sato">
 
+    <title>Juego de MiniDamas 2 con JS - Practica de JS - LPPA 2021</title>
 
-  <title>MiniDamas-Personalizado con Js -LLPA 2021</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Carga Inicial Funciones  -->
-  <script type="text/javascript" src="app/damas.js">
-  </script>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
-</head>
-<body>
- 
-  <header>
-    <input type="checkbox" id="btnmenu">
-    <label for="btnmenu">
-      <img src="./img/icono-menu.png" alt="Menu Boton">
-    </label>
-      <nav>
-        <ul>
-          <li><a href="#">DAMAS</a></li>
-          <li><a href="reglas.html">REGLAS DEL JUEGO</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-      </nav>
-  </header>
+    <!-- carga inicial para disponibilidad de funciones desde el archivo minidamas.js -->
+    <script type="text/javascript" src="minidamas.js">
+    </script>
 
-  <section id="tablero">
-    <div class="row">
-      <div id="juego-damas">
-        <h2>Mini Damas</h2>
-        <div class="puntajes">
-          <h3>Fichas #1:<p id="nombreJugador1">Jugador 1</p></h3>
-          <input type="text" id="puntos1" class="jugador-puntaje" value="0" ReadOnly>
+  </head>
+
+  <body>
+
+    <header>
+        <input type="checkbox" id="btn-menu">
+        <label for="btn-menu">
+          <img src="./img/icono-menu.png" alt="Boton de Menu">
+        </label>
+        <nav class="menu">
+          <ul>
+            <li><a href="#">DAMAS</a></li>
+            <li><a href="reglas.html">REGLAS DEL JUEGO</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+    </header>
+
+    <section id="tablero">
+      <div class="row">
+        <div id="juego-damas">
+          <table id="tablero-marco">
+
+          </table>
         </div>
-        <div class="puntajes">
-          <h3>Fichas #2:<p id="nombreJugador2">Jugador 2</p></h3>
-          <input type="text" id="puntos2" class="jugador-puntaje" value="0" ReadOnly>
-        </div>
+        <aside id="menu-tablero">
+          <h2>Mini Damas v2</h2>
+          <div class="puntajes">
+            <h3>Fichas #1: <p id="nombreJugador1">Jugador 1</p></h3>
+            <input type="text" id="puntos1" class="jugador-puntaje" value="0" ReadOnly >
+          </div>
+          <div class="puntajes">
+            <h3>Fichas #2: <p id="nombreJugador2">Jugador 2</p></h3>
+            <input type="text" id="puntos2" class="jugador-puntaje" value="0" ReadOnly >
+          </div>
+          <h3 id="turno-jugador"> </h3>
+          <input type="button" id="boton-nueva-partida" value="Nueva Partida" onclick="cargar_nuevaPartida();">
+          <input type="button" id="boton-guardar-partida" class="partidasGuardadas" value="Guardar Partida" onclick="guardar_partida();">
+          <input type="button" id="boton-recuperar-partida-guardada" class="partidasGuardadas" value="Recuperar Partida Guardada" onclick="recuperar_partida_guardada();">
+          <input type="button" id="boton-ver-lista-partidas-ganadas" class="partidasGanadas" value="Ver Lista Partidas Ganadas" onclick="verPartidasGanadas();">
+        </aside>
       </div>
-    </div>
-  </section>
-  
-  
-</body>
+    </section>
+      
+
+    <footer id="main-footer">
+      <div id="datos-footer" class="container">
+        <div>
+          <a href="reglas.html"><abbr title="Haga click aqu&iacute; para ver la p&aacute;gina explicativa de las reglas de juego">Reglamento del Juego</abbr></a>  
+        </div>
+        <div  id="linkGithub">
+          <a href="https://github.com/rubensato/Minidamas2_JS" target="_blank">Ver repositorio del proyecto en GitHub <img id="imgGitHub" src="img/GitHub-logo-en-negro.png" ></a>  
+        </div>
+        <div>
+          <p>Copyright &copy; 2021 by Rub&eacute;n Sato</p>
+        </div>        
+      </div>
+    </footer>
+    
+    <!-- archivo de scripts JS para la carga inicial -->
+    <script type="text/javascript" src="scripts.js">
+    </script>
+
+    <!-- ejecusion de la funcion de carga inicial del tablero desde el archivo minidamas.js -->
+    <script>
+      dibujar_tablero();
+      // cargar_tableroNuevo();    //carga tablero inicio de juego
+      // cargar_tablero();         //carga tablero con posiciones de partida iniciada
+    </script>
+    
+
+
+  </body>
+
+
 </html>

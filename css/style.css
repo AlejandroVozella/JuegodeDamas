@@ -1,0 +1,530 @@
+/*archivo css de la version personalizada del juego Mini Damas*/
+
+/*parametros generales*/
+* {
+  box-sizing: border-box;
+}
+
+body{
+  background-color: #aaaaaa;
+  background-image: url(../img/fondo-tablero.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  color: #000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.6em;
+  margin: 0;
+}
+
+.container{
+  width: 85%;
+  margin: auto;
+}
+
+/*encabezado - menu*/
+header {
+  width: 100%;
+  background: #4e94ab;
+}
+
+#btn-menu {
+  display: none;
+}
+
+header label {
+  display: none;
+  width: 50px;
+  padding: 10px;
+  bordel-right: 1px solid #fff;
+}
+
+header label img {
+  width: 30px;
+  height: 30px;
+  opacity:0.4;
+}
+
+header label:hover {
+  cursor: pointer;
+  background: rgba(0,0,0,0.3);
+}
+
+.menu ul {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.menu li {
+  border-right: 1px solid #fff;
+}
+
+.menu li:hover {
+  background: rgba(0,0,0,0.3);
+}
+
+.menu li a {
+  display: block;
+  padding: 15px 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+/*area juego - tablero*/
+.row {
+  width: 85%;
+  display: flex;
+  margin: auto;
+}
+
+#juego-damas {
+  width: 70%;
+  padding: 20px;
+}
+
+#tablero-marco{
+    background-color: blue;
+    margin: auto;
+}
+
+#tablero-damas{
+  border-collapse: collapse;
+  border: 0;
+}
+
+.casilla-blanca{
+  width: 60px;
+  height: 60px;
+  background-color: orange;
+}
+
+.casilla-negra{
+  width: 60px;
+  height: 60px;
+  background-color: brown;
+}
+
+.ficha-blanca{
+  background-image: url(../img/FichaGris.png);
+}
+
+.ficha-negra{
+  background-image: url(../img/FichaRojo.png);
+}
+
+.casilla-seleccionada{
+  border: 3px solid greenyellow;
+}
+
+
+/*area juego - menu lateral puntajes y boton*/
+aside#menu-tablero {
+  width: 30%;
+  background-color: #333333;
+  padding: 15px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-right: 7px solid blue;
+  border-bottom: 7px solid blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#menu-tablero h2 {
+    font-size: 30px;
+    color: orange;
+    text-align: center;
+}
+
+.puntajes {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  align: center;
+}
+
+.puntajes h3 {
+  color: yellow;
+  font-style: italic;
+  margin-right: 10px;
+  text-align: center;
+  flex-direction: row;
+}
+
+.jugador-puntaje {
+  font-size: 30px;
+  color: yellow;
+  font-style: italic;
+  margin-right: 10px;
+  text-align: center;
+  width: 100px;
+  background-color: blue;
+  border-right: 7px solid orange;
+  border-bottom: 7px solid orange;
+}
+
+#nombreJugador1, #nombreJugador2 {
+  color: #fff;
+  font-weight: bolder;
+}
+
+#turno-jugador{
+  font-size: 20px;
+  color: yellow;
+  margin-top: 10px;
+}
+
+#boton-nueva-partida {
+  height: 35px;
+  width: 90%;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color:#aa77aa;
+  border: 0;
+  border-radius: 5px;
+  border-right: 7px solid blue;
+  border-bottom: 7px solid blue;
+  margin-top: 25px;
+  margin-bottom: 35px;
+}
+
+#boton-nueva-partida:hover{
+  background-color:#ddaadd;
+}
+
+
+
+.partidasGuardadas {
+  height: 35px;
+  width: 90%;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  background-color: #aaaaaa;
+  border: 0;
+  border-radius: 5px;
+  border-right: 7px solid rgb(62, 62, 77);
+  border-bottom: 7px solid rgb(62, 62, 77);
+  margin-top: 15px;
+}
+
+.partidasGuardadas:hover {
+  background-color: #ddaadd;
+}
+
+.partidasGanadas {
+  height: 35px;
+  width: 90%;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  background-color: #ccc;
+  border: 0;
+  border-radius: 5px;
+  border-right: 7px solid rgb(62, 62, 77);
+  border-bottom: 7px solid rgb(62, 62, 77);
+  margin-top: 30px;
+}
+
+.partidasGanadas:hover {
+  background-color: #fff;
+}
+
+
+
+/*footer*/
+#main-footer{
+  background: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+#main-footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#main-footer a:hover {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#main-footer abbr {
+  text-decoration: none;
+}
+
+#datos-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#linkGithub {
+  height: 30px;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+#imgGitHub {
+  height: 25px;
+}
+
+
+/*Formulario de contacto*/
+#form-contacto {
+
+}
+
+.form-row {
+  background: lightgray;
+  padding: 15px;
+  margin: auto;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+}
+
+.form-titulo{
+  text-align: center;
+}
+
+.form-titulo h2 {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: bold;
+  color: darkslategrey;
+}
+
+.form-fila {
+  width: 75%;
+  margin-top: 15px;
+}
+
+.form-fila input {
+  font-size: 16px;
+  height: 30px;
+  width: 100%;
+}
+
+#consulta {
+  font-size: 16px;
+  height: 100px;
+  width: 100%;
+  resize:none;
+  background-color:#F7F2E0;
+}
+
+#boton-consulta {
+  font-size: 16px;
+  height: 55px;
+  width: 220px;
+  font-weight: lighter;
+  color: #ffffff;
+  background: linear-gradient(0deg, #1b165a, #3c26b9 );
+  border: 0;
+  border-radius: 8px;
+  margin: auto;
+}
+
+
+/* pagina de reglas */
+#reglas {
+  width: 80%;
+  padding: 20px;
+  margin: auto;
+  color: #fff;
+  font-weight: bold;
+}
+
+#texto-reglas {
+
+}
+
+/* ventana emergente de listado de partidas ganadas*/
+
+#marco-listado {
+  width: 95%;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#listadoPartidas {
+  width: 95%;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#listadoPartidas h1 {
+  color: #fff;
+  font-size: 18px;
+  font-weight: bolder;
+  background: linear-gradient(0deg, #1b165a, #3c26b9 );
+  text-align: center;
+}
+
+#mostrarListado {
+  width: 95%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+##mostrarListado p{
+  background-color: #333;
+  color:#fff;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+#listadoBotones {
+  width: 95%;
+  background-color: brown;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#filtrosListados {
+  width: 100%;
+}
+
+#cerrarListado {
+  width: 90%;
+  align-items: center;
+}
+
+#boton-cerrar-listado {
+  height: 35px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  background-color: #ccc;
+  border: 0;
+  border-radius: 5px;
+  border-right: 7px solid rgb(62, 62, 77);
+  border-bottom: 7px solid rgb(62, 62, 77);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#boton-cerrar-listado:hover {
+  background-color: #fff;
+}
+
+
+
+
+
+
+/*media queries - comportamiento responsivo*/
+@media (max-width: 1024px) {
+
+  .row {
+    width: 100%;
+  }
+}
+
+@media (max-width: 880px) {
+
+  .row {
+    width: 100%;
+    display: block;
+    margin: auto;
+  }
+
+  #juego-damas {
+    width: 100%;
+    padding: 0px;
+  }
+
+  aside#menu-tablero {
+    width: 100%;
+    margin: auto;
+  }
+}
+
+
+@media (max-width: 768px) {
+  
+  #juego-damas {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .casilla-blanca{
+    width: 50px;
+    height: 50px;
+  }
+
+  .casilla-negra{
+    width: 50px;
+    height: 50px;
+  }
+    
+  .ficha-blanca{
+    background-image: url(../img/FichaGrisChico.png);
+  }
+
+  .ficha-negra{
+    background-image: url(../img/FichaRojoChico.png);
+  }
+
+
+  header label {
+    display: block;
+  }
+
+  .menu {
+    position: absolute;
+    background: #4e94ab;
+    width: 150px;
+    margin-left: -150px;
+    transition: all 0.5s;
+  }
+
+  .menu ul {
+    flex-direction: column;
+  }
+
+  .menu li {
+    border-top: 1px solid #fff;
+  }
+
+  #btn-menu:checked ~ .menu {
+    margin: 0;
+  }
+
+  .form-fila {
+    width: 100%;
+  }
+
+  .form-row {
+    width: 100%;
+  }
+
+  #boton-consulta {
+    width: 100%;
+  }
+}

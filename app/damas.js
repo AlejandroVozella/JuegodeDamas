@@ -158,3 +158,60 @@ function dibujar_tablero() {
     recargarSesionAxtual();
   }
 }
+function dibujar_fichas(
+  ArrayJuega,
+  nombreJug1,
+  nombreJug2,
+  puntosJuega1,
+  puntosJuega2,
+  turnoJuega
+) {
+  document.getElementById("nombreJugador1").textContent = nombreJug1;
+  document.getElementById("nombreJugador2").textContent = nombreJug2;
+
+  document.getElementById("puntos1").value = puntosJuega1;
+  document.getElementById("puntos2").value = puntosJuega2;
+
+  document.getElementById("turno-jugador").textContent =
+    "Le toca mover al jugador: " + turnoJuega;
+
+  // bucle para recorrer filas
+  for (var i = 0; i < 8; i++) {
+    // bucle para recorrer columnas
+    for (var j = 0; j < 8; j++) {
+      //nombre de la celda
+      var nombreCelda = i + "-" + j;
+
+      //me posiciono en la celda especifica en el tablero segun su nombre
+      var celda = document.getElementById(nombreCelda);
+      //Le asigno un nombre a la celda
+      celda.id = i + "-" + j;
+
+      // Crea una variable indice que me va a servir para verificar si la suma de i y j es par, para
+      //establecer el color de fondo de la celda
+      indice = i + j;
+
+      //si el resto de la division de indice por 2 es cero, indice es par
+      if (indice % 2 == 0) {
+        celda.className = "casilla-blanca"; //casilla blanca
+      } else {
+        celda.className = "casilla-negra"; //casilla negra
+      }
+
+      //blanqueo de fichas
+      celda.classList.remove("ficha-blanca");
+      celda.classList.remove("ficha-negra");
+
+      //Ubico las fichas segun la posicion de la celda, si esta en alguno de los arreglos de posicion
+      if (ArrayJuega[i][j] == 1) {
+        celda.classList.add("ficha-blanca");
+      } else if (ArrayJuega[i][j] == 2) {
+        celda.classList.add("ficha-negra");
+      }
+    } //fin bucle de columnas
+  } //fin bucle de filas
+
+  //llamo a la funcion que almacena los datos de juego de la sesión actual, para que no se pierda
+  //el juego al refrescar la pagina
+  guardarSesionAxtual();
+}

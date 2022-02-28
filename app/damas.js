@@ -215,3 +215,124 @@ function dibujar_fichas(
   //el juego al refrescar la pagina
   guardarSesionAxtual();
 }
+
+//********************************************************** */
+//  ------- VALIDACION DE CASILLA MOVIMIENTO FICHAS --------
+
+//funcion para verificar si se intentar ubicar en una casilla valida segun su posicion
+function casillaValida(colorFichas, posicionAnterior, posicionNueva) {
+  //salida de control
+  console.log("verifica, color fichas: " + colorFichas);
+  console.log("verifica, posicion anterior: " + posicionAnterior);
+  console.log("verifica, posicion nueva: " + posicionNueva);
+
+  //creo variables de comparacion de posicion fila y columna
+  var filaAnterior = parseInt(posicionAnterior.substring(0, 1));
+  var columnaAnterior = parseInt(posicionAnterior.substring(2));
+  var filaNueva = parseInt(posicionNueva.substring(0, 1));
+  var columnaNueva = parseInt(posicionNueva.substring(2));
+
+  //salida de control
+  console.log("verifica, fila anterior: " + filaAnterior);
+  console.log("verifica, columna anterior: " + columnaAnterior);
+  console.log("verifica, fila nueva: " + filaNueva);
+  console.log("verifica, columna nueva: " + columnaNueva);
+
+  //verifico segun el color de ficha que toca mover
+  if (colorFichas == "blancas") {
+    console.log("mueven las blancas");
+
+    //verifico si se esta moviendo en diagonal 1 o 2 lugares
+    //para que las blancas puedan avanzar, deben estar en una fila anterior a la 8 en ascendente
+    //y la fila nueva ser la proxima a la anterior posicion
+    if (
+      filaAnterior < 8 &&
+      filaNueva == filaAnterior + 1 &&
+      Math.abs(columnaAnterior - columnaNueva) == 1
+    ) {
+      //para que las blancas puedan avanzar, debe haber una casilla libre en diagonal
+      //en la proxima fila que la compararé con la posicion "target"
+      return true;
+    } else if (
+      filaAnterior < 7 &&
+      filaNueva == filaAnterior + 2 &&
+      Math.abs(columnaAnterior - columnaNueva) == 2
+    ) {
+      //para que las blancas puedan avanzar 2 casillas en diagonal, debe haber una casilla
+      //en la proxima segunda fila que la compararé con la posicion "target"
+      //y debe haber una ficha negra en la casilla anterior para "comer"
+
+      var posicionPosibleFicha =
+        filaAnterior +
+        1 +
+        "-" +
+        (columnaAnterior + (columnaNueva - columnaAnterior) / 2);
+      console.log(posicionPosibleFicha);
+
+      //identifico la casilla intermedia
+      var casillaVerificar = document.getElementById(posicionPosibleFicha);
+
+      //si en la casilla intermedia hay una ficha negra, se mueve la ficha blanca
+      //y "come" la ficha negra
+      if (casillaVerificar.classList.contains("ficha-negra")) {
+        casillaVerificar.classList.remove("ficha-negra");
+        document.getElementById("puntos2").value -= 1;
+        return true;
+      }
+    }
+  } else if (colorFichas == "negras") {
+    console.log("mueven las negras");
+
+    //para que las negras puedan avanzar, deben estar en una fila anterior a la 0 en descendente
+    //y la fila nueva ser la proxima a la anterior posicion
+    if (
+      filaAnterior > 0 &&
+      filaNueva == filaAnterior - 1 &&
+      Math.abs(columnaAnterior - columnaNueva) == 1
+    ) {
+      //para que las negras puedan avanzar, debe haber una casilla libre en diagonal
+      //en la proxima fila que la compararé con la posicion "target"
+
+      //la casilla, si esta en la columna 1 o la 8, solo tendra posible una casilla de avance
+      if (columnaAnterior > 1) {
+        console.log(
+          "se mueve desde la columna mayor a 1, hay celda libre avance columna anterior"
+        );
+      } else if (columnaAnterior < 8) {
+        console.log(
+          "se mueve desde la columna menor a 8, hay celda libre avance columna siguiente"
+        );
+      }
+      return true;
+    } else if (
+      filaAnterior > 1 &&
+      filaNueva == filaAnterior - 2 &&
+      Math.abs(columnaAnterior - columnaNueva) == 2
+    ) {
+      //para que las negras puedan avanzar 2 casillas en diagonal, debe haber una casilla
+      //en la proxima segunda fila que la compararé con la posicion "target"
+      //y debe haber una ficha blanca en la casilla anterior para "comer"
+
+      var posicionPosibleFicha =
+        filaAnterior -
+        1 +
+        "-" +
+        (columnaAnterior + (columnaNueva - columnaAnterior) / 2);
+      console.log(posicionPosibleFicha);
+
+      //identifico la casilla intermedia
+      var casillaVerificar = document.getElementById(posicionPosibleFicha);
+
+      //si en la casilla intermedia hay una ficha blanca, se mueve la ficha negra
+      //y "come" la ficha blanca
+      if (casillaVerificar.classList.contains("ficha-blanca")) {
+        casillaVerificar.classList.remove("ficha-blanca");
+        document.getElementById("puntos1").value -= 1;
+        return true;
+      }
+    }
+  }
+
+  //si la casilla no es valida, no se realiza el movimiento
+  return false;
+}

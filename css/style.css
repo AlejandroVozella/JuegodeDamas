@@ -277,9 +277,7 @@ aside#menu-tablero {
 
 
 /*Formulario de contacto*/
-#form-contacto {
 
-}
 
 .form-row {
   background: lightgray;
@@ -385,7 +383,7 @@ aside#menu-tablero {
   align-items: center;
 }
 
-##mostrarListado p{
+#mostrarListado p{
   background-color: #333;
   color:#fff;
   font-size: 12px;

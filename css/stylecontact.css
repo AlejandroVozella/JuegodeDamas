@@ -1,15 +1,17 @@
 * {
   margin: 0;
   padding: 0;
+  
 }
 
 body {
   font-family: "Rubik", sans-serif;
+  background-color: #aaaaaa;
 }
 
 .navbar {
   height: 70px;
-  background-color: yellowgreen;
+  background-color:#4e94ab;
   display: flex;
   color: white;
   justify-content: space-around;
@@ -24,7 +26,7 @@ body {
 }
 
 .form-row {
-  background: lightgray;
+  background: #333333;
   padding: 15px;
   margin: auto;
   margin-top: 25px;
@@ -43,7 +45,7 @@ body {
   font-size: 20px;
   font-style: normal;
   font-weight: bold;
-  color: darkslategrey;
+  color: white;
 }
 
 .form-fila {
@@ -80,7 +82,7 @@ body {
 /*Comienzo Footer*/
 
 footer {
-  background-color: blue;
+  background-color: #333333;
   height: 55px;
   width: 100%;
   color: white;

@@ -5,9 +5,9 @@
   box-sizing: border-box;
 }
 
-body{
+body {
   background-color: #aaaaaa;
-  background-image: url(../img/fondo-tablero.jpg);
+  /* background-image: url(../img/fondo-tablero.jpg); */
   background-attachment: fixed;
   background-size: cover;
   color: #000;
@@ -17,7 +17,7 @@ body{
   margin: 0;
 }
 
-.container{
+.container {
   width: 85%;
   margin: auto;
 }
@@ -36,18 +36,18 @@ header label {
   display: none;
   width: 50px;
   padding: 10px;
-  bordel-right: 1px solid #fff;
+  border-right: 1px solid #fff;
 }
 
 header label img {
   width: 30px;
   height: 30px;
-  opacity:0.4;
+  opacity: 0.4;
 }
 
 header label:hover {
   cursor: pointer;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .menu ul {
@@ -63,7 +63,7 @@ header label:hover {
 }
 
 .menu li:hover {
-  background: rgba(0,0,0,0.3);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .menu li a {
@@ -85,40 +85,39 @@ header label:hover {
   padding: 20px;
 }
 
-#tablero-marco{
-    background-color: blue;
-    margin: auto;
+#tablero-marco {
+  /* background-color: blue; */
+  margin: auto;
 }
 
-#tablero-damas{
+#tablero-damas {
   border-collapse: collapse;
   border: 0;
 }
 
-.casilla-blanca{
+.casilla-blanca {
   width: 60px;
   height: 60px;
-  background-color: orange;
+  background-color: white;
 }
 
-.casilla-negra{
+.casilla-negra {
   width: 60px;
   height: 60px;
-  background-color: brown;
+  background-color: black;
 }
 
-.ficha-blanca{
+.ficha-blanca {
   background-image: url(../img/FichaGris.png);
 }
 
-.ficha-negra{
+.ficha-negra {
   background-image: url(../img/FichaRojo.png);
 }
 
-.casilla-seleccionada{
+.casilla-seleccionada {
   border: 3px solid greenyellow;
 }
-
 
 /*area juego - menu lateral puntajes y boton*/
 aside#menu-tablero {
@@ -127,17 +126,17 @@ aside#menu-tablero {
   padding: 15px;
   margin-top: 30px;
   margin-bottom: 30px;
-  border-right: 7px solid blue;
-  border-bottom: 7px solid blue;
+  /* border-right: 7px solid blue;
+  border-bottom: 7px solid blue; */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 #menu-tablero h2 {
-    font-size: 30px;
-    color: orange;
-    text-align: center;
+  font-size: 30px;
+  color: white;
+  text-align: center;
 }
 
 .puntajes {
@@ -148,7 +147,7 @@ aside#menu-tablero {
 }
 
 .puntajes h3 {
-  color: yellow;
+  color: white;
   font-style: italic;
   margin-right: 10px;
   text-align: center;
@@ -157,24 +156,25 @@ aside#menu-tablero {
 
 .jugador-puntaje {
   font-size: 30px;
-  color: yellow;
+  color: white;
   font-style: italic;
   margin-right: 10px;
   text-align: center;
   width: 100px;
-  background-color: blue;
-  border-right: 7px solid orange;
-  border-bottom: 7px solid orange;
+  background-color: #aaaaaa;
+  /* border-right: 7px solid white;
+  border-bottom: 7px solid orange; */
 }
 
-#nombreJugador1, #nombreJugador2 {
+#nombreJugador1,
+#nombreJugador2 {
   color: #fff;
   font-weight: bolder;
 }
 
-#turno-jugador{
+#turno-jugador {
   font-size: 20px;
-  color: yellow;
+  color: #aaaaaa;
   margin-top: 10px;
 }
 
@@ -183,21 +183,19 @@ aside#menu-tablero {
   width: 90%;
   font-size: 20px;
   font-weight: bold;
-  color: #ffffff;
-  background-color:#aa77aa;
+  color: black;
+  background-color: #aaaaaa;
   border: 0;
   border-radius: 5px;
-  border-right: 7px solid blue;
-  border-bottom: 7px solid blue;
+  border-right: 7px solid rgb(62, 62, 77);
+  border-bottom: 7px solid rgb(62, 62, 77);
   margin-top: 25px;
   margin-bottom: 35px;
 }
 
-#boton-nueva-partida:hover{
-  background-color:#ddaadd;
+#boton-nueva-partida:hover {
+  background-color: #ddaadd;
 }
-
-
 
 .partidasGuardadas {
   height: 35px;
@@ -235,10 +233,8 @@ aside#menu-tablero {
   background-color: #fff;
 }
 
-
-
 /*footer*/
-#main-footer{
+#main-footer {
   background: #333;
   color: #fff;
   padding: 20px;
@@ -275,9 +271,7 @@ aside#menu-tablero {
   height: 25px;
 }
 
-
 /*Formulario de contacto*/
-
 
 .form-row {
   background: lightgray;
@@ -291,7 +285,7 @@ aside#menu-tablero {
   width: 70%;
 }
 
-.form-titulo{
+.form-titulo {
   text-align: center;
 }
 
@@ -317,8 +311,8 @@ aside#menu-tablero {
   font-size: 16px;
   height: 100px;
   width: 100%;
-  resize:none;
-  background-color:#F7F2E0;
+  resize: none;
+  background-color: #f7f2e0;
 }
 
 #boton-consulta {
@@ -327,12 +321,11 @@ aside#menu-tablero {
   width: 220px;
   font-weight: lighter;
   color: #ffffff;
-  background: linear-gradient(0deg, #1b165a, #3c26b9 );
+  background: linear-gradient(0deg, #1b165a, #3c26b9);
   border: 0;
   border-radius: 8px;
   margin: auto;
 }
-
 
 /* pagina de reglas */
 #reglas {
@@ -341,10 +334,6 @@ aside#menu-tablero {
   margin: auto;
   color: #fff;
   font-weight: bold;
-}
-
-#texto-reglas {
-
 }
 
 /* ventana emergente de listado de partidas ganadas*/
@@ -370,7 +359,7 @@ aside#menu-tablero {
   color: #fff;
   font-size: 18px;
   font-weight: bolder;
-  background: linear-gradient(0deg, #1b165a, #3c26b9 );
+  background: linear-gradient(0deg, #1b165a, #3c26b9);
   text-align: center;
 }
 
@@ -383,9 +372,9 @@ aside#menu-tablero {
   align-items: center;
 }
 
-#mostrarListado p{
+#mostrarListado p {
   background-color: #333;
-  color:#fff;
+  color: #fff;
   font-size: 12px;
   font-weight: bold;
   margin-top: 5px;
@@ -431,21 +420,14 @@ aside#menu-tablero {
   background-color: #fff;
 }
 
-
-
-
-
-
 /*media queries - comportamiento responsivo*/
 @media (max-width: 1024px) {
-
   .row {
     width: 100%;
   }
 }
 
 @media (max-width: 880px) {
-
   .row {
     width: 100%;
     display: block;
@@ -463,32 +445,29 @@ aside#menu-tablero {
   }
 }
 
-
 @media (max-width: 768px) {
-  
   #juego-damas {
     margin-top: 10px;
     margin-bottom: 10px;
   }
 
-  .casilla-blanca{
+  .casilla-blanca {
     width: 50px;
     height: 50px;
   }
 
-  .casilla-negra{
+  .casilla-negra {
     width: 50px;
     height: 50px;
   }
-    
-  .ficha-blanca{
+
+  .ficha-blanca {
     background-image: url(../img/FichaGrisChico.png);
   }
 
-  .ficha-negra{
+  .ficha-negra {
     background-image: url(../img/FichaRojoChico.png);
   }
-
 
   header label {
     display: block;

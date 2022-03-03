@@ -564,3 +564,65 @@ function guardar_partida() {
   
 
 }
+//funcion para recuperar datos de una partida anterior almacenado en LocalStorage y cargarla
+function recuperar_partida_guardada() {
+
+  //verifica si es la primera vez que se cargan fichas segun estado de la variable cargaInicial
+  if (cargaInicial == 0) {
+  
+      //recupero el array con los datos del juego a partir del dato almacenado en el sessionStorage
+      partidaGuardada = JSON.parse(localStorage.getItem('partidaGuardada'));
+
+      console.log(partidaGuardada);
+
+      //recupero los 7 parametros almacenados de la partida: nombre y puntos jugador 1 y 2, 
+      //posiciones de fichas, turno proximo jugador, indicador de juego finalizado y variable mensaje
+      var nomJugador1 = partidaGuardada[0];               //Posicion 0: Nombre jugador 1
+      var nomJugador2 = partidaGuardada[1];               //Posicion 1: Nombre jugador 2
+      var puntosJugador1 = partidaGuardada[2];            //Posicion 2: Puntos jugador 1
+      var puntosJugador2 = partidaGuardada[3];            //Posicion 3: Puntos jugador 2
+      ArrayInicial =  partidaGuardada[4];                 //Posicion 4: Array de posiciones de fichas del juego
+      turnoJugador = partidaGuardada[5];                  //Posicion 5: turno del proximo jugador que toca mover
+      juegoFinalizado = partidaGuardada[6];               //Posicion 6: indicador de si el juego ya esta finalizado
+      mensaje = partidaGuardada[7];                       //Posicion 7: variable mensaje        
+
+      
+      //dibujo el tablero en funcion del array de juego de partida
+      dibujar_fichas(ArrayInicial, nomJugador1, nomJugador2, puntosJugador1, puntosJugador2, turnoJugador);
+
+      window.alert("La partida se ha cargado correctamente");
+
+      //variable para indicar primera vez que se carga el tablero cambia a 1
+      cargaInicial = 1;
+
+  }
+  else{
+
+      if (window.confirm("Esta operación borrará la partida actual. Desea continuar?")) {
+
+          //recupero el array con los datos del juego a partir del dato almacenado en el sessionStorage
+          partidaGuardada = JSON.parse(localStorage.getItem('partidaGuardada'));
+
+          console.log(partidaGuardada);
+  
+          //recupero los 7 parametros almacenados de la partida: nombre y puntos jugador 1 y 2, 
+          //posiciones de fichas, turno proximo jugador, indicador de juego finalizado y variable mensaje
+          var nomJugador1 = partidaGuardada[0];               //Posicion 0: Nombre jugador 1
+          var nomJugador2 = partidaGuardada[1];               //Posicion 1: Nombre jugador 2
+          var puntosJugador1 = partidaGuardada[2];            //Posicion 2: Puntos jugador 1
+          var puntosJugador2 = partidaGuardada[3];            //Posicion 3: Puntos jugador 2
+          ArrayInicial =  partidaGuardada[4];                 //Posicion 4: Array de posiciones de fichas del juego
+          turnoJugador = partidaGuardada[5];                  //Posicion 5: turno del proximo jugador que toca mover
+          juegoFinalizado = partidaGuardada[6];               //Posicion 6: indicador de si el juego ya esta finalizado
+          mensaje = partidaGuardada[7];                       //Posicion 7: variable mensaje       
+
+          
+          //dibujo el tablero en funcion del array de juego de partida
+          dibujar_fichas(ArrayInicial, nomJugador1, nomJugador2, puntosJugador1, puntosJugador2, turnoJugador);
+  
+          window.alert("La partida se ha cargado correctamente");
+
+      }
+  }
+
+}

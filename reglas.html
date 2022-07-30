@@ -14,23 +14,20 @@
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <!-- carga inicial para disponibilidad de funciones desde el archivo minidamas.js -->
-    <script type="text/javascript" src="minidamas.js">
-    </script>
+    
 
   </head>
 
   <body>
 
     <header>
-        <!-- <input type="checkbox" id="btn-menu">
-        <label for="btn-menu">
-          <img src="./img/icono-menu.png" alt="Boton de Menu">
-        </label> -->
-        <ul class="navbar">
-            <li><a href="index.html">Juego</a></li>
-            <li><a href="contacto.html">Contacto</a></li>                 
-          </ul>
+      <nav class="menu">
+        <ul>
+          <li><a href="#">DAMAS</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="index.html">Juego</a></li>
+        </ul>
+      </nav>
     </header>
 
     <section id="texto-reglas">
@@ -38,16 +35,14 @@
         <div id="texto-reglas">
 
           Reglas de esta versión del Juego:
-          <br>
-          <br>
+          <br>          
           Las damas es un juego de mesa para dos personas en un tablero de 64 cuadros. El juego consiste en mover las fichas en diagonal sobre los cuadros negros con el objetivo de comer las piezas del contrario saltando sobre ellas.  
           <br>
           El tablero está formado por 64 casillas de 8 x 8 celdas.  
           <br>
           Cada jugador dispone de 12 fichas de un mismo color situadas en las casillas negras más próximas a éste. 
           <br>
-          <br>
-          <br>
+          <br>          
           Reglas del Juego: 
           <br>
           <br>
@@ -90,12 +85,24 @@
     <footer id="main-footer">
       <div id="datos-footer" class="container">
         <div>
-          <a href="#"><abbr title="Haga click aqu&iacute; para ver la p&aacute;gina explicativa de las reglas de juego">Reglamento del Juego</abbr></a>  
+          <a href="reglas.html"
+            ><abbr
+              title="Haga click aqu&iacute; para ver la p&aacute;gina explicativa de las reglas de juego"
+              >Reglamento del Juego</abbr
+            ></a
+          >
         </div>
-        
+        <div id="linkGithub">
+          <a
+            href="https://github.com/AlejandroVozella/JuegodeDamas"
+            target="_blank"
+            >Repositorio en GitHub
+            <img id="imgGitHub" src="img/GitHub-logo-en-negro.png"
+          /></a>
+        </div>
         <div>
-            <h5>© Alejandro Vozella - Año 2022</h5>
-        </div>        
+          <p>&copy;Alejandro Vozella - Año 2022</p>
+        </div>
       </div>
     </footer>
     

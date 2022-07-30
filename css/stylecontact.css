@@ -1,29 +1,79 @@
 * {
   margin: 0;
   padding: 0;
-  
+  box-sizing: border-box;  
 }
+
+
 
 body {
-  font-family: "Rubik", sans-serif;
   background-color: #aaaaaa;
+  /* background-image: url(../img/fondo-tablero.jpg); */
+  background-attachment: fixed;
+  background-size: cover;
+  color: #000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.6em;
+  margin: 0;
 }
 
-.navbar {
-  height: 70px;
-  background-color:#4e94ab;
-  display: flex;
-  color: white;
-  justify-content: space-around;
-  margin-bottom: 20px;
+.container {
+  width: 85%;
+  margin: auto;
 }
 
-.navbar li {
+/*encabezado - menu*/
+header {
+  width: 100%;
+  background: #4e94ab;
+}
+
+#btn-menu {
+  display: none;
+}
+
+header label {
+  display: none;
+  width: 50px;
+  padding: 10px;
+  border-right: 1px solid #fff;
+}
+
+header label img {
+  width: 30px;
+  height: 30px;
+  opacity: 0.4;
+}
+
+header label:hover {
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.menu ul {
+  margin: 0;
   list-style: none;
-  margin-top: 20px;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
 }
-#form-contacto {
+
+.menu li {
+  border-right: 1px solid #fff;
 }
+
+.menu li:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.menu li a {
+  display: block;
+  padding: 15px 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
 
 .form-row {
   background: #333333;

@@ -131,14 +131,129 @@ header label:hover {
 
 /*Comienzo Footer*/
 
-footer {
-  background-color: #333333;
-  height: 55px;
-  width: 100%;
-  color: white;
-  text-align: center;
-  bottom: 0;
+#main-footer {
+  background: #333;
+  color: #fff;
+  padding: 20px;
   position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
+#main-footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#main-footer a:hover {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#main-footer abbr {
+  text-decoration: none;
+}
+
+#datos-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#linkGithub {
+  height: 30px;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+#imgGitHub {
+  height: 25px;
+}
 /*Fin Footer*/
+
+/*media queries - comportamiento responsivo*/
+@media (max-width: 1024px) {
+  .row {
+    width: 100%;
+  }
+}
+
+@media (max-width: 880px) {
+  .row {
+    width: 100%;
+    display: block;
+    margin: auto;
+  }
+
+  #juego-damas {
+    width: 100%;
+    padding: 0px;
+  }
+
+  aside#menu-tablero {
+    width: 100%;
+    margin: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  #juego-damas {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .casilla-blanca {
+    width: 50px;
+    height: 50px;
+  }
+
+  .casilla-negra {
+    width: 50px;
+    height: 50px;
+  }
+
+  .ficha-blanca {
+    background-image: url(../img/FichaGrisChico.png);
+  }
+
+  .ficha-negra {
+    background-image: url(../img/FichaRojoChico.png);
+  }
+
+  header label {
+    display: block;
+  }
+
+  .menu {
+    position: absolute;
+    background: #4e94ab;
+    width: 150px;
+    margin-left: -150px;
+    transition: all 0.5s;
+  }
+
+  .menu ul {
+    flex-direction: column;
+  }
+
+  .menu li {
+    border-top: 1px solid #fff;
+  }
+
+  #btn-menu:checked ~ .menu {
+    margin: 0;
+  }
+
+  .form-fila {
+    width: 100%;
+  }
+
+  .form-row {
+    width: 100%;
+  }
+
+  #boton-consulta {
+    width: 100%;
+  }
+}

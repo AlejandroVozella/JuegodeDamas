@@ -7,19 +7,20 @@
         <link rel="stylesheet" href="css/reset.css" />
         <link rel="stylesheet" href="css/stylecontact.css" />
         
-        <title>Document</title>
+        <title>Contacto MiniDamas</title>
     </head>
-        <header>
-            
+        <header>          
+            <input type="checkbox" id="btn-menu" />
+            <label for="btn-menu">
+              <img src="./img/icono-menu.png" alt="Boton de Menu" />
+            </label>
             <nav class="menu">
-                <ul>
-                  <li><a href="#">DAMAS</a></li>
-                  <li><a href="reglas.html">REGLAS DEL JUEGO</a></li>
-                  <li><a href="index.html">Juego</a></li>
-                </ul>
-              </nav>
-              
-            
+              <ul>
+                <li><a href="#">DAMAS</a></li>
+                <li><a href="reglas.html">REGLAS DEL JUEGO</a></li>
+                <li><a href="index.html">Juego</a></li>
+              </ul>
+            </nav>          
         </header>
         <body>
           
@@ -44,9 +45,29 @@
                       </div>            
                   </div>
               </section>
-           <footer>
-            <h5>© Alejandro Vozella - Año 2022</h5>
-          </footer>
+              <footer id="main-footer">
+                <div id="datos-footer" class="container">
+                  <div>
+                    <a href="reglas.html"
+                      ><abbr
+                        title="Haga click aqu&iacute; para ver la p&aacute;gina explicativa de las reglas de juego"
+                        >Reglamento del Juego</abbr
+                      ></a
+                    >
+                  </div>
+                  <div id="linkGithub">
+                    <a
+                      href="https://github.com/AlejandroVozella/JuegodeDamas"
+                      target="_blank"
+                      >Repositorio en GitHub
+                      <img id="imgGitHub" src="img/GitHub-logo-en-negro.png"
+                    /></a>
+                  </div>
+                  <div>
+                    <p>&copy;Alejandro Vozella - Año 2022</p>
+                  </div>
+                </div>
+              </footer>
           <script type="text/javascript" src="app/contacto.js">
           </script>
         </body>

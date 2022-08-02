@@ -1,6 +1,4 @@
-//*************** CONSTANTES ********************/
 
-//*************** VARIABLES ********************/
 //variable jugador actual ( 0: nueva partida , 1: blancas , 2: negras )
 
 //declaro variable global para indicar primera vez que se carga el tablero
@@ -120,7 +118,7 @@ var seleccionCelda = (e) => {
           enviarDatosServidor(turnoJugador, posicionMarcada); //envio datos a la API servidor remoto
 
           //asigno turno al otro jugador
-          console.log("le toca proximo turno jugador 2, fichas negras");
+          
           turnoJugador = 2;
 
           //actualizo el panel de turno

@@ -29,7 +29,7 @@ function enviarDatosContacto() {
           contactoNombre +
           " a traves de la pagina de Minidamas2_JS&body=" +
           contactoConsulta;
-        console.log(urlMail);
+        
         location.href = urlMail;
       } else {
         window.alert("Datos incompletos: Escriba la consulta a realizar");

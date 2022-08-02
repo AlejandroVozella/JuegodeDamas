@@ -67,7 +67,6 @@ function cargar_tableroNuevo() {
   );
 }
 
-
 function dibujar_fichas(
   ArrayJuega,
   nombreJug1,
@@ -75,8 +74,7 @@ function dibujar_fichas(
   puntosJuega1,
   puntosJuega2,
   turnoJuega
-) 
-{
+) {
   document.getElementById("nombreJugador1").textContent = nombreJug1;
   document.getElementById("nombreJugador2").textContent = nombreJug2;
 
@@ -275,354 +273,323 @@ function enviarDatosServidor(turnoj, posicionMarca) {
     .catch((err) => console.log("Error al enviar al servidor: " + err));
 }
 
-
 //********************************************************** */
-//  --- FUNCIONES PARA VERIFICAR SI HAY GANADOR O EMPATE --- 
+//  --- FUNCIONES PARA VERIFICAR SI HAY GANADOR O EMPATE ---
 
 //Funcion para verificar si solo quedan fichas de un color y resulta ganador
 function verSiHayGanador() {
-
   var cantidadBlancas = 0;
   var cantidadNegras = 0;
-  
+
   // bucle para recorrer filas y actualizar array fichas pára guardar
   for (var i = 0; i < 8; i++) {
-      // bucle para recorrer columnas
-      for (var j = 0; j < 8; j++) {
-          
-          //nombre de la celda
-          var nombreCelda = i + "-" + j;
-          
-          //me posiciono en la celda especifica en el tablero segun su nombre
-          var celda = document.getElementById(nombreCelda);
+    // bucle para recorrer columnas
+    for (var j = 0; j < 8; j++) {
+      //nombre de la celda
+      var nombreCelda = i + "-" + j;
 
-          //si el resto de la division de indice por 2 es cero, indice es par
-          if ( celda.classList.contains('ficha-blanca') ) {               
-              ArrayInicial[i][j] = 1;      //ficha blanca     
-              cantidadBlancas += 1;
-              
-          } 
-          else if ( celda.classList.contains('ficha-negra') ) {
-              ArrayInicial[i][j] = 2;      //ficha negra 
-              cantidadNegras += 1;
-          }
-          else {
-              ArrayInicial[i][j] = 0;      //no hay ficha 
-          }
-      }   //fin bucle de columnas
-  }    //fin bucle de filas
+      //me posiciono en la celda especifica en el tablero segun su nombre
+      var celda = document.getElementById(nombreCelda);
 
-  console.log('cantidad de fichas blancas: ' + cantidadBlancas);
-  console.log('cantidad de fichas negras: ' + cantidadNegras);
-
-  if (cantidadBlancas == 0) {          //hay GANADOR, ganaron las Negras, jugador 2
-
-      mensaje = "FELICITACIONES, HA GANADO JUGADOR 2 CON LAS FICHAS NEGRAS!!!";
-      console.log(mensaje);
-      window.alert(mensaje);
-
-      //actualizo el panel de turno
-      document.getElementById('turno-jugador').textContent = "HA GANADO EL JUGADOR 1!!!";
-
-      guardarPartidaGanada(1);
-
-      juegoFinalizado = 1;
-  } 
-  else if (cantidadNegras == 0) {      //hay GANADOR, ganaron las blancas, jugador 1
-
-      mensaje = "FELICITACIONES, HA GANADO JUGADOR 1 CON LAS FICHAS BLANCAS!!!";
-      console.log(mensaje);
-      window.alert(mensaje);
-
-      //actualizo el panel de turno
-      document.getElementById('turno-jugador').textContent = "HA GANADO EL JUGADOR 2!!!";
-
-      guardarPartidaGanada(2);
-
-      juegoFinalizado = 1;
-  }
-  else {
-      
-      console.log('verifico segun cantidad de posibilidad de movimientos de las fichas');
-
-      //funciones para ver si hay posibilidad de movimientos
-      verSiHayMasMovimientosB();                                //verifico si hay posibilidad de movimiento fichas blancas
-      verSiHayMasMovimientosN();                                //verifico si hay posibilidad de movimiento fichas negras
-      
-      console.log('movimientos posibles para fichas blancas: ' + hayMovimientosPosiblesB);
-      console.log('movimientos posibles para fichas negras: ' + hayMovimientosPosiblesN);
-
-
-      //La partida termina en empate cuando las piezas no tienen posibilidad de mas movimientos.
-      //La partida termina con un ganador si el que pierde tiene piezas bloqueadas sin mas posibilidad de movimientos
-      //Esta situacion se evalua una vez ejecutado un movimiento, evalua las posibilidades de jugar del siguiente jugador, y
-      //la variable "turnoJugador" ya tiene el valor 1 o 2, dependiendo de quien toque mover a continuacion 
-  
-      if ( turnoJugador == 1 && hayMovimientosPosiblesB == 0 ) {               //si el siguiente en mover son las blancas y no le quedan movimientos
-          if (hayMovimientosPosiblesN == 0) {                                  //y no quedan posibilidad de mover negras
-              
-              mensaje = "EMPATE, EL JUEGO FINALIZA SIN GANADORES!!!";
-              console.log(mensaje);
-              window.alert(mensaje);
-
-          }
-          else {                                                               //sino, ganan las negras, jugador 2
-              
-              mensaje = "FELICITACIONES, BLANCAS BLOQUEADAS, HA GANADO JUGADOR 2 CON LAS FICHAS NEGRAS!!!";
-              console.log(mensaje);
-              window.alert(mensaje);
-
-              guardarPartidaGanada(2);
-
-          }
-
-          juegoFinalizado = 1;
-
+      //si el resto de la division de indice por 2 es cero, indice es par
+      if (celda.classList.contains("ficha-blanca")) {
+        ArrayInicial[i][j] = 1; //ficha blanca
+        cantidadBlancas += 1;
+      } else if (celda.classList.contains("ficha-negra")) {
+        ArrayInicial[i][j] = 2; //ficha negra
+        cantidadNegras += 1;
+      } else {
+        ArrayInicial[i][j] = 0; //no hay ficha
       }
-      else if ( turnoJugador == 2 && hayMovimientosPosiblesN == 0 ) {                       //si el siguiente en mover son las negras
-          if (hayMovimientosPosiblesB == 0) {                                  //y no quedan posibilidad de mover blancas
-              
-              mensaje = "EMPATE, EL JUEGO FINALIZA SIN GANADORES!!!";
-              console.log(mensaje);
-              window.alert(mensaje);
+    } //fin bucle de columnas
+  } //fin bucle de filas
 
-          }
-          else {                                                               //sino, ganan las negras, jugador 2
-              
-              mensaje = "FELICITACIONES, NEGRAS BLOQUEADAS, HA GANADO JUGADOR 1 CON LAS FICHAS BLANCAS!!!";
-              console.log(mensaje);
-              window.alert(mensaje);
+  console.log("cantidad de fichas blancas: " + cantidadBlancas);
+  console.log("cantidad de fichas negras: " + cantidadNegras);
 
-              guardarPartidaGanada(1);
+  if (cantidadBlancas == 0) {
+    //hay GANADOR, ganaron las Negras, jugador 2
 
-          }
+    mensaje = "FELICITACIONES, HA GANADO JUGADOR 2 CON LAS FICHAS NEGRAS!!!";
 
-          juegoFinalizado = 1;
+    window.alert(mensaje);
 
+    //actualizo el panel de turno
+    document.getElementById("turno-jugador").textContent =
+      "HA GANADO EL JUGADOR 1!!!";
+
+    guardarPartidaGanada(1);
+
+    juegoFinalizado = 1;
+  } else if (cantidadNegras == 0) {
+    //hay GANADOR, ganaron las blancas, jugador 1
+
+    mensaje = "FELICITACIONES, HA GANADO JUGADOR 1 CON LAS FICHAS BLANCAS!!!";
+
+    window.alert(mensaje);
+
+    //actualizo el panel de turno
+    document.getElementById("turno-jugador").textContent =
+      "HA GANADO EL JUGADOR 2!!!";
+
+    guardarPartidaGanada(2);
+
+    juegoFinalizado = 1;
+  } else {
+    //funciones para ver si hay posibilidad de movimientos
+    verSiHayMasMovimientosB(); //verifico si hay posibilidad de movimiento fichas blancas
+    verSiHayMasMovimientosN(); //verifico si hay posibilidad de movimiento fichas negras
+
+    //La partida termina en empate cuando las piezas no tienen posibilidad de mas movimientos.
+    //La partida termina con un ganador si el que pierde tiene piezas bloqueadas sin mas posibilidad de movimientos
+    //Esta situacion se evalua una vez ejecutado un movimiento, evalua las posibilidades de jugar del siguiente jugador, y
+    //la variable "turnoJugador" ya tiene el valor 1 o 2, dependiendo de quien toque mover a continuacion
+
+    if (turnoJugador == 1 && hayMovimientosPosiblesB == 0) {
+      //si el siguiente en mover son las blancas y no le quedan movimientos
+      if (hayMovimientosPosiblesN == 0) {
+        //y no quedan posibilidad de mover negras
+
+        mensaje = "EMPATE, EL JUEGO FINALIZA SIN GANADORES!!!";
+
+        window.alert(mensaje);
+      } else {
+        //sino, ganan las negras, jugador 2
+
+        mensaje =
+          "FELICITACIONES, BLANCAS BLOQUEADAS, HA GANADO JUGADOR 2 CON LAS FICHAS NEGRAS!!!";
+
+        window.alert(mensaje);
+
+        guardarPartidaGanada(2);
       }
 
-  }
+      juegoFinalizado = 1;
+    } else if (turnoJugador == 2 && hayMovimientosPosiblesN == 0) {
+      //si el siguiente en mover son las negras
+      if (hayMovimientosPosiblesB == 0) {
+        //y no quedan posibilidad de mover blancas
 
+        mensaje = "EMPATE, EL JUEGO FINALIZA SIN GANADORES!!!";
+
+        window.alert(mensaje);
+      } else {
+        //sino, ganan las negras, jugador 2
+
+        mensaje =
+          "FELICITACIONES, NEGRAS BLOQUEADAS, HA GANADO JUGADOR 1 CON LAS FICHAS BLANCAS!!!";
+
+        window.alert(mensaje);
+
+        guardarPartidaGanada(1);
+      }
+
+      juegoFinalizado = 1;
+    }
+  }
 }
 
-
-
 function verSiHayMasMovimientosB() {
-      
-  console.log('evaluo posibilidad movimiento de las blancas');
-
-  var colorFichasMueven = 'blancas';
+  var colorFichasMueven = "blancas";
 
   //tengo que verificar posibilidad de movimientos de las fichas blancas
   hayMovimientosPosiblesB = 0;
 
   // bucle para recorrer filas menos la ultima en busca de fichas que tengan posibilidad de movimiento
   for (var i = 0; i < 7; i++) {
-      // bucle para recorrer columnas
-      for (var j = 0; j < 8; j++) {
-          
-          //nombre de la celda
-          var nombreCelda = i + "-" + j;
-          
-          //me posiciono en la celda especifica en el tablero segun su nombre
-          var celda = document.getElementById(nombreCelda);
+    // bucle para recorrer columnas
+    for (var j = 0; j < 8; j++) {
+      //nombre de la celda
+      var nombreCelda = i + "-" + j;
 
-          //si en la celda evaluada hay una ficha blanca, evaluo si hay movimientos posibles
-          if ( celda.classList.contains('ficha-blanca') ) {               
-              
-              //recorro todas las celdas de las filas siguientes 
-              for (var k = i+1; k < 8; k++) { 
+      //me posiciono en la celda especifica en el tablero segun su nombre
+      var celda = document.getElementById(nombreCelda);
 
-                  for (var n = 0; n < 8; n++) {
-                  
-                      //nombre de la celda a evaluar
-                      var celdaEvaluada = k + "-" + n;
+      //si en la celda evaluada hay una ficha blanca, evaluo si hay movimientos posibles
+      if (celda.classList.contains("ficha-blanca")) {
+        //recorro todas las celdas de las filas siguientes
+        for (var k = i + 1; k < 8; k++) {
+          for (var n = 0; n < 8; n++) {
+            //nombre de la celda a evaluar
+            var celdaEvaluada = k + "-" + n;
 
-                      //valido la celda evaluada, si es posible de movimiento, cambio la variable de referencia
-                      if (casillaValidaPosible(colorFichasMueven, nombreCelda, celdaEvaluada)) {
-
-                          hayMovimientosPosiblesB += 1;     //incrementa en 1 las posibilidades de movimientos
-
-                      } 
-                      
-                  }   
-
-              }                   
-              
-              
+            //valido la celda evaluada, si es posible de movimiento, cambio la variable de referencia
+            if (
+              casillaValidaPosible(
+                colorFichasMueven,
+                nombreCelda,
+                celdaEvaluada
+              )
+            ) {
+              hayMovimientosPosiblesB += 1; //incrementa en 1 las posibilidades de movimientos
+            }
           }
-      }   //fin bucle de columnas
-  }    //fin bucle de filas
+        }
+      }
+    } //fin bucle de columnas
+  } //fin bucle de filas
 
-  console.log('cantidad de movimientos posibles fichas blancas: ' + hayMovimientosPosiblesB);
+  console.log(
+    "cantidad de movimientos posibles fichas blancas: " +
+      hayMovimientosPosiblesB
+  );
 }
-  
-
 
 function verSiHayMasMovimientosN() {
+  console.log("evaluo posibilidad movimiento de las negras");
 
-  console.log('evaluo posibilidad movimiento de las negras');
-
-  var colorFichasMueven = 'negras';
+  var colorFichasMueven = "negras";
 
   //tengo que verificar posibilidad de movimientos de las fichas blancas
   hayMovimientosPosiblesN = 0;
 
   // bucle para recorrer filas menos la ultima en busca de fichas que tengan posibilidad de movimiento
-  for (var i = 7; i >0; i--) {
-      // bucle para recorrer columnas
-      for (var j = 0; j < 8; j++) {
-          
-          //nombre de la celda
-          var nombreCelda = i + "-" + j;
-          
-          //me posiciono en la celda especifica en el tablero segun su nombre
-          var celda = document.getElementById(nombreCelda);
+  for (var i = 7; i > 0; i--) {
+    // bucle para recorrer columnas
+    for (var j = 0; j < 8; j++) {
+      //nombre de la celda
+      var nombreCelda = i + "-" + j;
 
-          //si en la celda evaluada hay una ficha negra, evaluo si hay movimientos posibles
-          if ( celda.classList.contains('ficha-negra') ) {               
-              
-              //recorro todas las celdas de las filas siguientes 
-              for (var k = i-1; k > 0; k--) { 
+      //me posiciono en la celda especifica en el tablero segun su nombre
+      var celda = document.getElementById(nombreCelda);
 
-                  for (var n = 0; n < 8; n++) {
-                  
-                      //nombre de la celda a evaluar
-                      var celdaEvaluada = k + "-" + n;
+      //si en la celda evaluada hay una ficha negra, evaluo si hay movimientos posibles
+      if (celda.classList.contains("ficha-negra")) {
+        //recorro todas las celdas de las filas siguientes
+        for (var k = i - 1; k > 0; k--) {
+          for (var n = 0; n < 8; n++) {
+            //nombre de la celda a evaluar
+            var celdaEvaluada = k + "-" + n;
 
-                      //valido la celda evaluada, si es posible de movimiento, cambio la variable de referencia
-                      if (casillaValidaPosible(colorFichasMueven, nombreCelda, celdaEvaluada)) {
-
-                          hayMovimientosPosiblesN += 1;     //incrementa en 1 las posibilidades de movimientos
-                      }
-
-                  } 
-
-              }                   
-              
-              
+            //valido la celda evaluada, si es posible de movimiento, cambio la variable de referencia
+            if (
+              casillaValidaPosible(
+                colorFichasMueven,
+                nombreCelda,
+                celdaEvaluada
+              )
+            ) {
+              hayMovimientosPosiblesN += 1; //incrementa en 1 las posibilidades de movimientos
+            }
           }
-      }   //fin bucle de columnas
-  }    //fin bucle de filas
-
-  console.log('cantidad de movimientos posibles fichas negras: ' + hayMovimientosPosiblesN);
-
+        }
+      }
+    } //fin bucle de columnas
+  } //fin bucle de filas
 }
 
 //***************************************************************** */
-// ------ GUARDAR PARTIDA EN LOCALSTORAGE PARA CONTINUAR LUEGO ------ 
+// ------ GUARDAR PARTIDA EN LOCALSTORAGE PARA CONTINUAR LUEGO ------
 
 // funcion para guardar los datos de la partida a traves del uso de LocalStorage
 // la partida se almacena como array multidimensional
 function guardar_partida() {
-    
   // bucle para recorrer filas y actualizar array fichas pára guardar
   for (var i = 0; i < 8; i++) {
-      // bucle para recorrer columnas
-      for (var j = 0; j < 8; j++) {
-          
-          //nombre de la celda
-          var nombreCelda = i + "-" + j;
-          
-          //me posiciono en la celda especifica en el tablero segun su nombre
-          var celda = document.getElementById(nombreCelda);
+    // bucle para recorrer columnas
+    for (var j = 0; j < 8; j++) {
+      //nombre de la celda
+      var nombreCelda = i + "-" + j;
 
-          //si el resto de la division de indice por 2 es cero, indice es par
-          if ( celda.classList.contains('ficha-blanca') ) {               
-              ArrayInicial[i][j] = 1;      //ficha blanca     
-              
-          } 
-          else if ( celda.classList.contains('ficha-negra') ) {
-              ArrayInicial[i][j] = 2;      //ficha negra 
-          }
-          else {
-              ArrayInicial[i][j] = 0;      //no hay ficha 
-          }
-      }   //fin bucle de columnas
-  }    //fin bucle de filas
+      //me posiciono en la celda especifica en el tablero segun su nombre
+      var celda = document.getElementById(nombreCelda);
+
+      //si el resto de la division de indice por 2 es cero, indice es par
+      if (celda.classList.contains("ficha-blanca")) {
+        ArrayInicial[i][j] = 1; //ficha blanca
+      } else if (celda.classList.contains("ficha-negra")) {
+        ArrayInicial[i][j] = 2; //ficha negra
+      } else {
+        ArrayInicial[i][j] = 0; //no hay ficha
+      }
+    } //fin bucle de columnas
+  } //fin bucle de filas
 
   console.log(ArrayInicial);
 
   //armo el array con los datos del juego actual
   partidaGuardada = [
-      document.getElementById('nombreJugador1').textContent,   //Posicion 0: Nombre jugador 1
-      document.getElementById('nombreJugador2').textContent,   //Posicion 1: Nombre jugador 2
-      document.getElementById('puntos1').value,                //Posicion 2: Puntos jugador 1
-      document.getElementById('puntos2').value,                //Posicion 3: Puntos jugador 2
-      ArrayInicial,                                            //Posicion 4: Array de posiciones de fichas del juego
-      turnoJugador,                                            //Posicion 5: turno del proximo jugador que toca mover
-      juegoFinalizado,                                         //Posicion 6: indicador de si el juego ya esta finalizado
-      mensaje                                                  //Posicion 7: variable mensaje
-  ]
-  
+    document.getElementById("nombreJugador1").textContent, //Posicion 0: Nombre jugador 1
+    document.getElementById("nombreJugador2").textContent, //Posicion 1: Nombre jugador 2
+    document.getElementById("puntos1").value, //Posicion 2: Puntos jugador 1
+    document.getElementById("puntos2").value, //Posicion 3: Puntos jugador 2
+    ArrayInicial, //Posicion 4: Array de posiciones de fichas del juego
+    turnoJugador, //Posicion 5: turno del proximo jugador que toca mover
+    juegoFinalizado, //Posicion 6: indicador de si el juego ya esta finalizado
+    mensaje, //Posicion 7: variable mensaje
+  ];
+
   //CONVERSION PARA ALMACENAR DATOS CONVIRTIENDO ARRAY A STRING
   var partidaGuardadaString = JSON.stringify(partidaGuardada);
-  console.log('Array partidaActual convertido a string para almacenar partida: ' + partidaGuardadaString);
 
   //GUARDO LOS DATOS AL LOCAL STORAGE
-  localStorage.setItem('partidaGuardada', partidaGuardadaString);
-  
-
+  localStorage.setItem("partidaGuardada", partidaGuardadaString);
 }
 //funcion para recuperar datos de una partida anterior almacenado en LocalStorage y cargarla
 function recuperar_partida_guardada() {
-
   //verifica si es la primera vez que se cargan fichas segun estado de la variable cargaInicial
   if (cargaInicial == 0) {
-  
+    //recupero el array con los datos del juego a partir del dato almacenado en el sessionStorage
+    partidaGuardada = JSON.parse(localStorage.getItem("partidaGuardada"));
+
+    console.log(partidaGuardada);
+
+    //recupero los 7 parametros almacenados de la partida: nombre y puntos jugador 1 y 2,
+    //posiciones de fichas, turno proximo jugador, indicador de juego finalizado y variable mensaje
+    var nomJugador1 = partidaGuardada[0]; //Posicion 0: Nombre jugador 1
+    var nomJugador2 = partidaGuardada[1]; //Posicion 1: Nombre jugador 2
+    var puntosJugador1 = partidaGuardada[2]; //Posicion 2: Puntos jugador 1
+    var puntosJugador2 = partidaGuardada[3]; //Posicion 3: Puntos jugador 2
+    ArrayInicial = partidaGuardada[4]; //Posicion 4: Array de posiciones de fichas del juego
+    turnoJugador = partidaGuardada[5]; //Posicion 5: turno del proximo jugador que toca mover
+    juegoFinalizado = partidaGuardada[6]; //Posicion 6: indicador de si el juego ya esta finalizado
+    mensaje = partidaGuardada[7]; //Posicion 7: variable mensaje
+
+    //dibujo el tablero en funcion del array de juego de partida
+    dibujar_fichas(
+      ArrayInicial,
+      nomJugador1,
+      nomJugador2,
+      puntosJugador1,
+      puntosJugador2,
+      turnoJugador
+    );
+
+    window.alert("La partida se ha cargado correctamente");
+
+    //variable para indicar primera vez que se carga el tablero cambia a 1
+    cargaInicial = 1;
+  } else {
+    if (
+      window.confirm(
+        "Esta operación borrará la partida actual. Desea continuar?"
+      )
+    ) {
       //recupero el array con los datos del juego a partir del dato almacenado en el sessionStorage
-      partidaGuardada = JSON.parse(localStorage.getItem('partidaGuardada'));
+      partidaGuardada = JSON.parse(localStorage.getItem("partidaGuardada"));
 
-      console.log(partidaGuardada);
-
-      //recupero los 7 parametros almacenados de la partida: nombre y puntos jugador 1 y 2, 
+      //recupero los 7 parametros almacenados de la partida: nombre y puntos jugador 1 y 2,
       //posiciones de fichas, turno proximo jugador, indicador de juego finalizado y variable mensaje
-      var nomJugador1 = partidaGuardada[0];               //Posicion 0: Nombre jugador 1
-      var nomJugador2 = partidaGuardada[1];               //Posicion 1: Nombre jugador 2
-      var puntosJugador1 = partidaGuardada[2];            //Posicion 2: Puntos jugador 1
-      var puntosJugador2 = partidaGuardada[3];            //Posicion 3: Puntos jugador 2
-      ArrayInicial =  partidaGuardada[4];                 //Posicion 4: Array de posiciones de fichas del juego
-      turnoJugador = partidaGuardada[5];                  //Posicion 5: turno del proximo jugador que toca mover
-      juegoFinalizado = partidaGuardada[6];               //Posicion 6: indicador de si el juego ya esta finalizado
-      mensaje = partidaGuardada[7];                       //Posicion 7: variable mensaje        
+      var nomJugador1 = partidaGuardada[0]; //Posicion 0: Nombre jugador 1
+      var nomJugador2 = partidaGuardada[1]; //Posicion 1: Nombre jugador 2
+      var puntosJugador1 = partidaGuardada[2]; //Posicion 2: Puntos jugador 1
+      var puntosJugador2 = partidaGuardada[3]; //Posicion 3: Puntos jugador 2
+      ArrayInicial = partidaGuardada[4]; //Posicion 4: Array de posiciones de fichas del juego
+      turnoJugador = partidaGuardada[5]; //Posicion 5: turno del proximo jugador que toca mover
+      juegoFinalizado = partidaGuardada[6]; //Posicion 6: indicador de si el juego ya esta finalizado
+      mensaje = partidaGuardada[7]; //Posicion 7: variable mensaje
 
-      
       //dibujo el tablero en funcion del array de juego de partida
-      dibujar_fichas(ArrayInicial, nomJugador1, nomJugador2, puntosJugador1, puntosJugador2, turnoJugador);
+      dibujar_fichas(
+        ArrayInicial,
+        nomJugador1,
+        nomJugador2,
+        puntosJugador1,
+        puntosJugador2,
+        turnoJugador
+      );
 
       window.alert("La partida se ha cargado correctamente");
-
-      //variable para indicar primera vez que se carga el tablero cambia a 1
-      cargaInicial = 1;
-
+    }
   }
-  else{
-
-      if (window.confirm("Esta operación borrará la partida actual. Desea continuar?")) {
-
-          //recupero el array con los datos del juego a partir del dato almacenado en el sessionStorage
-          partidaGuardada = JSON.parse(localStorage.getItem('partidaGuardada'));
-
-          console.log(partidaGuardada);
-  
-          //recupero los 7 parametros almacenados de la partida: nombre y puntos jugador 1 y 2, 
-          //posiciones de fichas, turno proximo jugador, indicador de juego finalizado y variable mensaje
-          var nomJugador1 = partidaGuardada[0];               //Posicion 0: Nombre jugador 1
-          var nomJugador2 = partidaGuardada[1];               //Posicion 1: Nombre jugador 2
-          var puntosJugador1 = partidaGuardada[2];            //Posicion 2: Puntos jugador 1
-          var puntosJugador2 = partidaGuardada[3];            //Posicion 3: Puntos jugador 2
-          ArrayInicial =  partidaGuardada[4];                 //Posicion 4: Array de posiciones de fichas del juego
-          turnoJugador = partidaGuardada[5];                  //Posicion 5: turno del proximo jugador que toca mover
-          juegoFinalizado = partidaGuardada[6];               //Posicion 6: indicador de si el juego ya esta finalizado
-          mensaje = partidaGuardada[7];                       //Posicion 7: variable mensaje       
-
-          
-          //dibujo el tablero en funcion del array de juego de partida
-          dibujar_fichas(ArrayInicial, nomJugador1, nomJugador2, puntosJugador1, puntosJugador2, turnoJugador);
-  
-          window.alert("La partida se ha cargado correctamente");
-
-      }
-  }
-
 }

@@ -149,7 +149,7 @@ function casillaValida(colorFichas, posicionAnterior, posicionNueva) {
 
   //verifico segun el color de ficha que toca mover
   if (colorFichas == "blancas") {
-    console.log("mueven las blancas");
+    
 
     //verifico si se esta moviendo en diagonal 1 o 2 lugares
     //para que las blancas puedan avanzar, deben estar en una fila anterior a la 8 en ascendente
@@ -176,7 +176,7 @@ function casillaValida(colorFichas, posicionAnterior, posicionNueva) {
         1 +
         "-" +
         (columnaAnterior + (columnaNueva - columnaAnterior) / 2);
-      console.log(posicionPosibleFicha);
+      
 
       //identifico la casilla intermedia
       var casillaVerificar = document.getElementById(posicionPosibleFicha);
@@ -190,7 +190,7 @@ function casillaValida(colorFichas, posicionAnterior, posicionNueva) {
       }
     }
   } else if (colorFichas == "negras") {
-    console.log("mueven las negras");
+    
 
     //para que las negras puedan avanzar, deben estar en una fila anterior a la 0 en descendente
     //y la fila nueva ser la proxima a la anterior posicion
@@ -208,9 +208,7 @@ function casillaValida(colorFichas, posicionAnterior, posicionNueva) {
           "se mueve desde la columna mayor a 1, hay celda libre avance columna anterior"
         );
       } else if (columnaAnterior < 8) {
-        console.log(
-          "se mueve desde la columna menor a 8, hay celda libre avance columna siguiente"
-        );
+        
       }
       return true;
     } else if (
@@ -227,7 +225,7 @@ function casillaValida(colorFichas, posicionAnterior, posicionNueva) {
         1 +
         "-" +
         (columnaAnterior + (columnaNueva - columnaAnterior) / 2);
-      console.log(posicionPosibleFicha);
+      
 
       //identifico la casilla intermedia
       var casillaVerificar = document.getElementById(posicionPosibleFicha);
@@ -429,14 +427,11 @@ function verSiHayMasMovimientosB() {
     } //fin bucle de columnas
   } //fin bucle de filas
 
-  console.log(
-    "cantidad de movimientos posibles fichas blancas: " +
-      hayMovimientosPosiblesB
-  );
+ 
 }
 
 function verSiHayMasMovimientosN() {
-  console.log("evaluo posibilidad movimiento de las negras");
+  
 
   var colorFichasMueven = "negras";
 

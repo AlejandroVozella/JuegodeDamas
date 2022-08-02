@@ -16,7 +16,7 @@ https://alejandrovozella.github.io/JuegodeDamas/
 
 ### Licencia y Copyright
 
-© Nicolas Vozella - Año 2021
+© Alejandro Vozella - Año 2022
 
 
 ### Funcionalidades 
